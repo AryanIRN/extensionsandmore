@@ -1,23 +1,25 @@
-// Simpele HTML-partials loader
+// assets/js/includes.js
 document.addEventListener('DOMContentLoaded', async () => {
   const includeTargets = document.querySelectorAll('[data-include]');
+
+  // Bepaal site-root (GitHub Pages vs lokaal)
+  const ROOT = location.hostname.endsWith('github.io') ? '/extensionsandmore/' : '/';
 
   for (const el of includeTargets) {
     const url = el.getAttribute('data-include');
     try {
-      // no-store om caching te omzeilen tijdens development
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error(url + ' ' + res.status + ' ' + res.statusText);
+      // Forceer fetch relatief aan site-root
+      const absUrl = new URL(url, location.origin + ROOT).toString();
+      const res = await fetch(absUrl, { cache: 'no-store' });
+      if (!res.ok) throw new Error(absUrl + ' ' + res.status + ' ' + res.statusText);
 
       const html = await res.text();
-      // vervang placeholder node door de geladen content
       const wrapper = document.createElement('div');
       wrapper.innerHTML = html;
       el.replaceWith(...wrapper.childNodes);
+
     } catch (e) {
-      // veilig fallback comment in DOM
-      const comment = document.createComment('include failed: ' + e);
-      el.replaceWith(comment);
+      el.replaceWith(document.createComment('include failed: ' + e));
       console.error('Include mislukt:', e);
     }
   }
