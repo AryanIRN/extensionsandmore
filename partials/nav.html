@@ -30,24 +30,3 @@
     </div>
   </div>
 </nav>
-
-<script>
-// Active link automatisch
-const path = location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll(".navbar .nav-link").forEach(a=>{
-  if(a.getAttribute("href")===path){ a.classList.add("active"); }
-});
-
-// Cart badge (werkt met localStorage-cart)
-const LS_KEY='em-cart';
-function updateNavCart(){
-  try{
-    const cart=JSON.parse(localStorage.getItem(LS_KEY))||{};
-    const n=Object.values(cart).reduce((s,i)=>s+i.qty,0);
-    const el=document.getElementById('navCartCount');
-    if(el){ el.textContent=n; el.style.display=n?'inline-block':'none'; }
-  }catch{}
-}
-updateNavCart();
-window.addEventListener('storage',updateNavCart);
-</script>

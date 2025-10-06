@@ -1,70 +1,109 @@
-<!doctype html><html lang="nl"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Shake & Protect — Extensions & More</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css"></head>
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Shake & Protect — Extensions & More</title>
+
+  <script>
+    (function(){
+      const b=document.createElement('base');
+      b.href=location.hostname.endsWith('github.io')?'/extensionsandmore/':'/';
+      document.head.prepend(b);
+    })();
+  </script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
 <body>
-<div data-include="../partials/nav.html"></div>
-<main>
-<section class="py-4 section-sand"><div class="container">
-  <nav aria-label="breadcrumb" class="mb-2"><ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="../shop.html" class="link-gold">Shop</a></li>
-    <li class="breadcrumb-item active">Shake & Protect</li></ol></nav>
-  <h1 class="h2 mb-1">Shake & Protect</h1>
-  <p class="text-taupe-700 mb-0">Hydrateert direct en sealt de schubbenlaag.</p>
-</div></section>
+  <div data-include="partials/nav.html"></div>
 
-<section class="py-5"><div class="container">
-  <div class="row g-4">
-    <div class="col-md-6">
-      <div class="ph-product round-2xl shadow-soft mb-3" aria-label="Shake & Protect foto placeholder"></div>
-      <div class="d-flex gap-2"><div class="ig-ph flex-fill"></div><div class="ig-ph flex-fill"></div><div class="ig-ph flex-fill"></div></div>
-    </div>
-    <div class="col-md-6">
-      <div class="card card-like p-3 p-md-4">
-        <div><div class="badge-soft mb-2">200 ml</div><h2 class="h4 mb-1">Shake & Protect</h2><div class="fw-semibold">€29,50</div></div>
-        <hr class="my-3">
-        <div class="d-flex gap-2 align-items-center">
-          <label for="qty" class="mb-0 text-taupe-700">Aantal</label>
-          <input id="qty" class="form-control" type="number" min="1" value="1" style="max-width:110px">
+  <main>
+    <section class="py-4 section-sand">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="shop.html" class="link-gold">Shop</a></li>
+            <li class="breadcrumb-item active">Shake & Protect</li>
+          </ol>
+        </nav>
+        <h1 class="h2 mb-1">Shake & Protect</h1>
+        <p class="text-taupe-700 mb-0">Hydrateert direct en sealt de schubbenlaag.</p>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="ph-product round-2xl shadow-soft mb-3" aria-label="Shake & Protect foto placeholder"></div>
+            <div class="d-flex gap-2"><div class="ig-ph flex-fill"></div><div class="ig-ph flex-fill"></div><div class="ig-ph flex-fill"></div></div>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-like p-3 p-md-4">
+              <div><div class="badge-soft mb-2">200 ml</div><h2 class="h4 mb-1">Shake & Protect</h2><div class="fw-semibold">€29,50</div></div>
+              <hr class="my-3">
+              <div class="d-flex gap-2 align-items-center">
+                <label for="qty" class="mb-0 text-taupe-700">Aantal</label>
+                <input id="qty" class="form-control" type="number" min="1" value="1" style="max-width:110px">
+              </div>
+              <div class="d-grid mt-3">
+                <button class="btn btn-accent rounded-pill"
+                        data-add data-id="shake" data-name="Shake & Protect" data-price="29.50">In winkelmand</button>
+              </div>
+              <p class="small text-taupe-700 mt-2 mb-0">Schudden voor gebruik; lichtgewicht, geen build-up.</p>
+            </div>
+          </div>
         </div>
-        <div class="d-grid mt-3"><button class="btn btn-accent rounded-pill"
-          data-add data-id="shake" data-name="Shake & Protect" data-price="29.50">In winkelmand</button></div>
-        <p class="small text-taupe-700 mt-2 mb-0">Schudden voor gebruik; lichtgewicht, geen build-up.</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="row g-4 mt-2">
-    <div class="col-lg-8">
-      <div class="card card-like p-3 p-md-4">
-        <h3 class="h5">Omschrijving</h3>
-        <p>Two-phase leave-in die hydratatie en glans geeft. Perfect voor droogte-gevoelige extensions.</p>
-        <h4 class="h6 mt-3">Gebruik</h4>
-        <ul class="mb-0"><li>Goed schudden. Op lengtes en punten vernevelen.</li><li>Niet uitspoelen.</li></ul>
+        <div class="row g-4 mt-2">
+          <div class="col-lg-8">
+            <div class="card card-like p-3 p-md-4">
+              <h3 class="h5">Omschrijving</h3>
+              <p>Two-phase leave-in die hydratatie en glans geeft. Perfect voor droogte-gevoelige extensions.</p>
+              <h4 class="h6 mt-3">Gebruik</h4>
+              <ul class="mb-0"><li>Goed schudden. Op lengtes en punten vernevelen.</li><li>Niet uitspoelen.</li></ul>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-like p-3 p-md-4">
+              <h3 class="h6">Goed om te weten</h3>
+              <ul class="mb-0"><li>Anti-statish, anti-frizz.</li><li>Veilig voor alle bevestigingen.</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <section class="mt-4">
+          <div class="card card-like p-3 p-md-4">
+            <h3 class="h5 mb-3">Reviews</h3>
+            <div class="row g-3"><div class="col-md-6"><div class="ig-ph"></div></div><div class="col-md-6"><div class="ig-ph"></div></div></div>
+            <p class="text-taupe-700 small mt-3 mb-0">Reviews komen hier — klaar voor integratie.</p>
+          </div>
+        </section>
       </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card card-like p-3 p-md-4">
-        <h3 class="h6">Goed om te weten</h3>
-        <ul class="mb-0"><li>Anti-statish, anti-frizz.</li><li>Veilig voor alle bevestigingen.</li></ul>
-      </div>
-    </div>
-  </div>
-    <section class="mt-4"><div class="card card-like p-3 p-md-4">
-    <h3 class="h5 mb-3">Reviews</h3>
-    <div class="row g-3"><div class="col-md-6"><div class="ig-ph"></div></div><div class="col-md-6"><div class="ig-ph"></div></div></div>
-    <p class="text-taupe-700 small mt-3 mb-0">Reviews komen hier — klaar voor integratie.</p>
-  </div></section>
-</div></section>
-</main>
-<div data-include="../partials/footer.html"></div>
-<script>
-const K='em-cart';function L(){try{return JSON.parse(localStorage.getItem(K))||{}}catch{return{}}}
-function S(c){localStorage.setItem(K,JSON.stringify(c));}
-function add(id,name,price,qty){const c=L();if(!c[id])c[id]={id,name,price:parseFloat(price),qty:0};c[id].qty+=qty;S(c);alert(`${name} toegevoegd.`)}
-document.querySelector('[data-add]')?.addEventListener('click',e=>{const b=e.currentTarget,q=parseInt(document.getElementById('qty').value||'1',10);add(b.dataset.id,b.dataset.name,b.dataset.price,q>0?q:1)});
-</script>
-<script src="../assets/js/includes.js"></script>
-</body></html>
+    </section>
+  </main>
+
+  <div data-include="partials/footer.html"></div>
+
+  <script>
+    const K='em-cart';
+    function L(){ try{return JSON.parse(localStorage.getItem(K))||{}}catch{return{}} }
+    function S(c){ localStorage.setItem(K, JSON.stringify(c)); }
+    function add(id,name,price,qty){
+      const c=L(); if(!c[id]) c[id]={id,name,price:parseFloat(price),qty:0};
+      c[id].qty+=qty; S(c); alert(`${name} toegevoegd.`);
+    }
+    document.querySelector('[data-add]')?.addEventListener('click',e=>{
+      const b=e.currentTarget, q=parseInt(document.getElementById('qty').value||'1',10);
+      add(b.dataset.id,b.dataset.name,b.dataset.price,q>0?q:1);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/includes.js" defer></script>
+  <script src="assets/js/nav-init.js" defer></script>
+</body>
+</html>
