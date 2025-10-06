@@ -1,0 +1,685 @@
+/* =========================
+   Extensions & More — Taupe Theme
+   ========================= */
+
+/* ===== Core palette & tokens ===== */
+:root{
+  /* Taupe palette */
+  --taupe-900:#2e2a27;   /* bijna zwart, warm */
+  --taupe-800:#3a3531;
+  --taupe-700:#4a443f;
+  --taupe-600:#5a534d;
+  --taupe-500:#6b625b;   /* basis taupe */
+  --taupe-300:#a79f97;   /* lichtere taupe */
+
+  /* Base / accents */
+  --ivory:#f6f4f1;       /* gebroken wit */
+  --accent:#c0a98b;      /* zand / goud-taupe */
+  --accent-2:#9b856b;
+
+  /* Text */
+  --text:#111;
+  --text-on-dark:#f7f6f4;
+
+  /* Radii & shadow */
+  --round-2xl:1.2rem;
+  --shadow-soft:0 8px 24px rgba(0,0,0,.08);
+
+  /* Transitions */
+  --t:200ms;
+  --t-fast:120ms;
+}
+
+html,body{height:100%;}
+body{
+  background:var(--ivory);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ===== Layout polish ===== */
+@media (min-width:1200px){
+  .container{ max-width:1140px; } /* iets compacter voor luxe look */
+}
+
+/* ===== Utilities ===== */
+.round-2xl{ border-radius:var(--round-2xl); }
+.shadow-soft{ box-shadow:var(--shadow-soft); }
+.section-muted{ background: linear-gradient(180deg, var(--ivory), #fff); }
+
+.text-taupe-700{ color:var(--taupe-700) !important; }
+.bg-taupe-900{ background:var(--taupe-900) !important; }
+.text-ivory{ color:var(--text-on-dark) !important; }
+
+/* Zachte badge */
+.badge-soft{
+  display:inline-block;
+  padding:.35rem .65rem;
+  border-radius:999px;
+  background:rgba(0,0,0,.04);
+  color:#333;
+  font-weight:500;
+  font-size:.85rem;
+}
+
+/* ===== Links ===== */
+a.link-gold{ color:var(--accent); text-decoration:none; transition:color var(--t); }
+a.link-gold:hover{ color:var(--accent-2); text-decoration:underline; }
+
+/* ===== Buttons ===== */
+.btn-accent{
+  background:var(--accent);
+  color:#1a1a1a;
+  border:none;
+  transition: background var(--t), color var(--t), box-shadow var(--t);
+}
+.btn-accent:hover{ background:var(--accent-2); color:#111; }
+.btn-accent:focus-visible{
+  outline:2px solid transparent;
+  box-shadow:0 0 0 .2rem rgba(192,169,139,.35);
+}
+
+.btn-outline-dark{
+  border-color:var(--taupe-700);
+  color:var(--taupe-700);
+}
+.btn-outline-dark:hover{
+  background:var(--taupe-700);
+  color:var(--text-on-dark);
+  border-color:var(--taupe-700);
+}
+
+/* ===== Navbar (dark) ===== */
+.navbar.taupe{
+  background:var(--taupe-900) !important;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.navbar .navbar-brand,
+.navbar .nav-link{
+  color:var(--text-on-dark) !important;
+  transition:color var(--t-fast), opacity var(--t-fast);
+}
+.navbar .nav-link:hover{ color:var(--accent) !important; }
+.navbar .nav-link.active{ color:var(--accent) !important; }
+.navbar .navbar-toggler{
+  border-color:rgba(255,255,255,.2);
+}
+.navbar .navbar-toggler:focus{
+  box-shadow:0 0 0 .2rem rgba(255,255,255,.25);
+}
+/* betere toggler-icon in dark */
+.navbar .navbar-toggler-icon{
+  filter: invert(1) grayscale(100%);
+  opacity:.9;
+}
+
+/* ===== Footer ===== */
+.footer{
+  background:var(--taupe-900);
+  color:var(--text-on-dark);
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.footer a{ color:var(--accent); text-decoration:none; transition:color var(--t); }
+.footer a:hover{ color:var(--accent-2); text-decoration:underline; }
+
+/* ===== Cards look (voor USP/teasers) ===== */
+.card-like{
+  background:#fff;
+  border-radius:var(--round-2xl);
+  box-shadow:var(--shadow-soft);
+}
+
+/* ===== Forms ===== */
+.form-control, .form-select{
+  border-color:#ddd;
+  border-radius:.8rem;
+}
+.form-control:focus, .form-select:focus{
+  border-color:var(--accent-2);
+  box-shadow:0 0 0 .2rem rgba(192,169,139,.35);
+}
+
+/* ===== Accordion (FAQ) ===== */
+.accordion .accordion-item{
+  border:none;
+  margin-bottom:.75rem;
+  border-radius:var(--round-2xl);
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;
+}
+.accordion-button{
+  background:#fff;
+  color:#222;
+  padding:1rem 1.25rem;
+}
+.accordion-button:not(.collapsed){
+  color:#111;
+  background:#fff;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.05);
+}
+.accordion-button:focus{
+  border-color:var(--accent-2);
+  box-shadow:0 0 0 .2rem rgba(192,169,139,.35);
+}
+
+/* ===== Carousel (reviews) ===== */
+/* Verberg de gele/basis puntjes helemaal; je kunt dit uitzetten als je ze later wilt */
+.carousel-indicators{ display:none; }
+
+.carousel .carousel-inner{
+  border-radius:var(--round-2xl);
+  overflow:hidden;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+  filter: invert(1) grayscale(100%); /* beter zichtbaar op lichte slides */
+}
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon{
+  filter: invert(1) sepia(1) hue-rotate(325deg) saturate(1.1); /* subtiel accent */
+}
+
+/* ===== Floating quick actions (whatsapp/phone) ===== */
+.fab-group{
+  position: fixed; right: 16px; bottom: 16px; z-index: 1050;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.fab{
+  width: 54px; height: 54px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--taupe-900);
+  color: var(--text-on-dark); border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  transition: transform var(--t), background var(--t), color var(--t);
+}
+.fab:hover{ background: var(--taupe-800); color: var(--accent); transform: translateY(-2px); }
+
+/* ===== Accessibility niceties ===== */
+a:focus-visible, button:focus-visible{
+  outline:2px solid transparent;
+  box-shadow:0 0 0 .2rem rgba(192,169,139,.45);
+  border-radius:.5rem;
+}
+
+/* Respecteer 'reduce motion' */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}
+
+/* Verberg de pijlen van de carousel volledig */
+.carousel-control-prev,
+.carousel-control-next {
+  display: none !important;
+}
+
+/* Insta skeleton placeholders */
+.ig-ph{
+  height: 120px;
+  border-radius: 1rem;
+  background: linear-gradient(100deg, rgba(0,0,0,.05) 20%, rgba(0,0,0,.08) 40%, rgba(0,0,0,.05) 60%);
+  background-size: 200% 100%;
+  animation: igShimmer 1.2s infinite;
+}
+@keyframes igShimmer {
+  to { background-position: -200% 0; }
+}
+
+/* Elfsight wrapper finetune (rondingen/schaduw optioneel) */
+.elfsight-app-4b17c255-2f22-4bd5-9853-08b02e9452b3{
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* Kop-styling in muted sectie */
+.section-muted .h3{ font-weight:600; color:var(--taupe-900); }
+.section-muted p{ color:var(--taupe-700); }
+
+/* Instagram placeholders (zachte shimmer) */
+.ig-ph{
+  height: 130px;
+  border-radius: 1rem;
+  background: linear-gradient(100deg, rgba(0,0,0,.05) 20%, rgba(0,0,0,.08) 40%, rgba(0,0,0,.05) 60%);
+  background-size: 200% 100%;
+  animation: igShimmer 1.2s infinite;
+}
+@keyframes igShimmer {
+  to { background-position: -200% 0; }
+}
+
+.section-muted.border-top {
+  border-color: rgba(0,0,0,.05) !important;
+}
+.section-muted h4, .section-muted .h4 {
+  color: var(--taupe-900);
+}
+
+/* ===== Timeline ===== */
+.timeline{
+  position: relative;
+  margin-left: 1.25rem;         /* ruimte voor de lijn op mobiel */
+  padding-left: .75rem;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0; bottom:0;
+  width:2px;
+  background: linear-gradient(var(--taupe-300), rgba(0,0,0,.06));
+  border-radius:2px;
+}
+.timeline-item{
+  position: relative;
+  display:flex;
+  gap: .9rem;
+  margin-bottom: 1.25rem;
+}
+.timeline-dot{
+  position:absolute;
+  left:-1.05rem;                 /* centreren over de lijn */
+  top:.35rem;
+  width:18px; height:18px;
+  border-radius:50%;
+  background: var(--taupe-900);
+  border:1px solid rgba(255,255,255,.1);
+  display:grid; place-items:center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+.timeline-dot i{
+  font-size:.75rem;
+  color: var(--accent);
+  transform: translateY(-.5px);
+}
+.timeline-content{
+  margin-left: 1.2rem;           /* ruimte t.o.v. dot */
+  background:#fff;
+  border-radius: var(--round-2xl);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Desktop: mooie middenlijn */
+@media (min-width: 992px){
+  .timeline{
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .timeline::before{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .timeline-item{
+    align-items: flex-start;
+  }
+  .timeline-item:nth-child(odd) .timeline-content{
+    width: 46%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  .timeline-item:nth-child(even) .timeline-content{
+    width: 46%;
+    margin-left: auto;
+  }
+  .timeline-item .timeline-dot{
+    left: calc(50% - 9px); /* 18px/2 */
+  }
+}
+
+/* ===== Numbered timeline dots ===== */
+.timeline-dot{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: .85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  border: none;
+  position: absolute;
+  left: -1.2rem;
+  top: .25rem;
+}
+.timeline-dot::before{
+  content: none; /* icon fallback uitzetten */
+}
+
+/* Donker thema variant */
+[data-bs-theme="dark"] .timeline-dot{
+  background: var(--accent-2);
+  color: var(--text-on-dark);
+}
+
+/* ===== Over page additions ===== */
+.about-hero{
+  background: linear-gradient(180deg, var(--ivory), #fff);
+}
+.about-portrait{
+  aspect-ratio: 4/3;
+  border-radius: var(--round-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+}
+.about-portrait img{ display:block; }
+
+.stat{
+  background:#fff;
+  border-radius: var(--round-2xl);
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(0,0,0,.06);
+}
+.stat-value{
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  line-height: 1;
+  font-weight: 700;
+}
+.stat-label{
+  color: var(--taupe-700);
+  margin-top: .25rem;
+}
+
+/* socials */
+.social-links{ display:flex; gap:.75rem; flex-wrap:wrap; }
+.social{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  padding: .55rem .8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #222;
+  transition: transform .2s ease, background var(--t), color var(--t), border-color var(--t);
+}
+.social:hover{
+  transform: translateY(-1px);
+  background: var(--accent);
+  color: #1a1a1a;
+  border-color: transparent;
+}
+
+/* product strip (optioneel) */
+.product-strip-inner{
+  border-radius: var(--round-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow-soft);
+}
+
+/* dark theme tweaks */
+[data-bs-theme="dark"] .about-hero{
+  background: linear-gradient(180deg, #0e0e0e, #101010);
+}
+[data-bs-theme="dark"] .stat,
+[data-bs-theme="dark"] .about-portrait,
+[data-bs-theme="dark"] .product-strip-inner{
+  background:#101010; border-color:#1e1e1e;
+}
+[data-bs-theme="dark"] .social{
+  background:#101010; border-color:#1e1e1e; color:#eaeaea;
+}
+[data-bs-theme="dark"] .social:hover{
+  background: var(--accent-2); color: var(--text-on-dark);
+}
+
+
+/* ===== Fix About Photo (volledige foto tonen) ===== */
+.about-portrait {
+  border-radius: var(--round-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  height: auto;
+  max-width: 480px;             /* houdt hem elegant rechts */
+  margin-left: auto;
+}
+
+.about-portrait img {
+  width: 100%;
+  height: auto;                 /* foto gebruikt eigen hoogte */
+  object-fit: cover;            /* vullend, zonder rek */
+  object-position: center top;  /* iets meer bovenin focus */
+  display: block;
+  border-radius: inherit;
+}
+
+/* Op mobiel: centreer */
+@media (max-width: 767px){
+  .about-portrait{
+    margin-inline: auto;
+    max-width: 100%;
+  }
+}
+
+
+/* ===== Onze Collectie (compacte versie) ===== */
+.collection-section {
+  background: var(--ivory);
+}
+
+.collection-image.small {
+  max-width: 380px;           /* ✅ compact formaat */
+  margin-inline: auto;
+  border-radius: var(--round-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow-soft);
+}
+
+.collection-image.small img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;        /* niets afgesneden */
+  display: block;
+}
+
+/* Luxe hover effect (alleen desktop) */
+@media (hover:hover){
+  .collection-image.small img {
+    transition: transform .3s ease;
+  }
+  .collection-image.small:hover img {
+    transform: scale(1.03);
+  }
+}
+
+/* Mobiel: tekst boven, foto onder */
+@media (max-width: 991px){
+  .collection-section .row {
+    text-align: center;
+  }
+  .collection-section .btn {
+    margin-top: .5rem;
+  }
+  .collection-image.small {
+    max-width: 320px;
+  }
+}
+/* Donkere band variant zoals index CTA */
+.bg-taupe-900 { background: var(--taupe-900) !important; }
+.text-ivory   { color: var(--text-on-dark) !important; }
+
+/* bestaande compacte image gebruiken, maar border op dark aanpassen */
+.collection-image.small {
+  max-width: 380px;
+  margin-inline: auto;
+  border-radius: var(--round-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow-soft);
+}
+.collection-image.small img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* op donkere achtergrond: lichtere rand */
+.collection-image.on-dark {
+  border-color: rgba(255,255,255,.12);
+  background: #0f0f0f;
+}
+
+/* mobiel */
+@media (max-width: 991px){
+  .collection-image.small { max-width: 320px; }
+}
+/* effen ivoor */
+.section-muted{ background: var(--ivory); }
+
+/* of: zachte ivoor→ivoor gradient (geen puur wit) */
+.section-muted{ background: linear-gradient(180deg, var(--ivory), var(--ivory)); }
+
+
+/* ------ Section varianten ------ */
+.section-alt{
+  background: linear-gradient(180deg, rgba(107,98,91,.06), rgba(107,98,91,0)); /* subtiele “sand” wash */
+  border-top: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.section-dark{
+  background: var(--taupe-900);
+  color: var(--text-on-dark);
+}
+
+/* tekstkleuren in .section-dark */
+.section-dark h2,.section-dark h3,.section-dark .h2,.section-dark .h3{ color: var(--text-on-dark); }
+.section-dark .text-muted,.section-dark .text-taupe-700{ color: rgba(255,255,255,.7) !important; }
+
+/* placeholders zichtbaar op donker */
+.section-dark .ig-ph{
+  background: linear-gradient(100deg, rgba(255,255,255,.10) 20%, rgba(255,255,255,.18) 40%, rgba(255,255,255,.10) 60%);
+}
+
+/* ===== Sand palette ===== */
+:root{
+  --sand:#9a9082;           /* jouw gekozen zand */
+  --sand-2:#8e8477;         /* iets donkerder voor gradient */
+  --sand-ink:#2e2a27;       /* inktkleur voor koppen op sand */
+  --sand-body:#4a443f;      /* body-tekst op sand */
+}
+
+/* Zandkleurige achtergrondvariant (subtiele diepte) */
+.section-sand{
+  /* heel subtiele licht→donker gradient voor luxe gevoel */
+  background: linear-gradient(90deg, var(--sand) 0%, var(--sand-2) 100%);
+  color: var(--sand-body);
+}
+
+/* Koppen en tekst op sand */
+.section-sand h1,.section-sand h2,.section-sand h3,
+.section-sand .h1,.section-sand .h2,.section-sand .h3{
+  color: var(--sand-ink);
+}
+.section-sand p,.section-sand li,.section-sand small{
+  color: var(--sand-body);
+}
+
+/* Witte cards op sand: extra subtiele outline zodat ze “loskomen” */
+.section-sand .bg-white{
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+/* Optioneel: dunne boven/onder-lijn om de band te kaderen */
+.section-sand{
+  border-top: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* Sticky footer layout */
+html, body { height: 100%; }
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh; /* ondersteunt mobile browsers beter dan 100vh */
+}
+main{ flex: 1 0 auto; }
+
+/* jouw footer wordt via includes in een wrapper-div gezet: duw die omlaag */
+div[data-include$="footer.html"]{ margin-top: auto; }
+
+/* optioneel: zorg dat footer niet per ongeluk omhoog “trekt” door margins */
+footer.footer{ margin-top: 0; width: 100%; }
+
+
+.card img {
+  border-radius: var(--round-2xl) var(--round-2xl) 0 0;
+  object-fit: cover;
+  height: 220px;
+}
+.card:hover {
+  transform: translateY(-3px);
+  transition: transform .2s ease;
+}
+
+.nav-link.active {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+
+
+/* Product placeholders (zelfde look als .ig-ph, maar met card-radius & hoogte) */
+.ph-product{
+  height: 220px; /* matcht .card img hoogte */
+  border-radius: var(--round-2xl) var(--round-2xl) 0 0;
+  background: linear-gradient(100deg, rgba(0,0,0,.05) 20%, rgba(0,0,0,.08) 40%, rgba(0,0,0,.05) 60%);
+  background-size: 200% 100%;
+  animation: igShimmer 1.2s infinite; /* gebruikt je bestaande keyframes */
+  display: grid; place-items: center;
+  color: rgba(0,0,0,.45);
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+[data-bs-theme="dark"] .ph-product{
+  background: linear-gradient(100deg, rgba(255,255,255,.08) 20%, rgba(255,255,255,.16) 40%, rgba(255,255,255,.08) 60%);
+  color: rgba(255,255,255,.7);
+}
+
+
+/* Kaart als flex-kolom */
+.card-product{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+/* Body vult overgebleven ruimte */
+.card-product .card-body{
+  display:flex;
+  flex-direction:column;
+  flex:1;                    /* <— belangrijk */
+  text-align:center;
+  align-items:center;
+}
+
+/* Contentblok boven de knop (hoogte egaliseren) */
+.card-product .meta{
+  width:100%;
+  min-height: 120px;         /* tune 110–140px naar smaak */
+}
+
+/* Knopcontainer altijd onderaan en volle breedte beschikbaar */
+.card-product .cta{
+  margin-top:auto;           /* duwt naar onderkant */
+  align-self:stretch;        /* pakt body-breedte */
+  display:flex;
+  justify-content:center;
+}
+
+/* Brede knop */
+.card-product .cta .btn{
+  width:90%;                 /* of 100% als je hem full-width wilt */
+  white-space:nowrap;
+  border-radius:999px;
+  padding:.65rem 1.5rem;
+  font-weight:500;
+  letter-spacing:.3px;
+  box-sizing:border-box;
+}

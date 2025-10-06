@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="nl">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Conditioner — Extensions & More</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css"></head>
+<body>
+<div data-include="../partials/nav.html"></div>
+<main>
+<section class="py-4 section-sand"><div class="container">
+  <nav aria-label="breadcrumb" class="mb-2"><ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../shop.html" class="link-gold">Shop</a></li>
+    <li class="breadcrumb-item active">Conditioner</li></ol></nav>
+  <h1 class="h2 mb-1">Conditioner</h1>
+  <p class="text-taupe-700 mb-0">Voedt, ontwart en laat extensions soepel vallen.</p>
+</div></section>
+
+<section class="py-5"><div class="container">
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="ph-product round-2xl shadow-soft mb-3" aria-label="Conditioner foto placeholder"></div>
+      <div class="d-flex gap-2"><div class="ig-ph flex-fill"></div><div class="ig-ph flex-fill"></div><div class="ig-ph flex-fill"></div></div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-like p-3 p-md-4">
+        <div><div class="badge-soft mb-2">250 ml</div><h2 class="h4 mb-1">Conditioner</h2><div class="fw-semibold">€26,95</div></div>
+        <hr class="my-3">
+        <div class="d-flex gap-2 align-items-center">
+          <label for="qty" class="mb-0 text-taupe-700">Aantal</label>
+          <input id="qty" class="form-control" type="number" min="1" value="1" style="max-width:110px">
+        </div>
+        <div class="d-grid mt-3"><button class="btn btn-accent rounded-pill"
+          data-add data-id="conditioner" data-name="Conditioner" data-price="26.95">In winkelmand</button></div>
+        <p class="small text-taupe-700 mt-2 mb-0">Gratis afhalen in salon. Retour binnen 14 dagen als ongeopend.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-lg-8">
+      <div class="card card-like p-3 p-md-4">
+        <h3 class="h5">Omschrijving</h3>
+        <p>Ontwart moeiteloos en voegt lichte voeding toe zonder de aanzet te verzwaren.</p>
+        <h4 class="h6 mt-3">Gebruik</h4>
+        <ul class="mb-0"><li>Aanbrengen vanaf halverwege de lengtes tot in de punten.</li><li>2–3 minuten laten inwerken, zorgvuldig uitspoelen.</li></ul>
+        <h4 class="h6 mt-3">Ingrediënten (highlight)</h4>
+        <p class="mb-0">Cationic conditioners, argan-extract, panthenol.</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card card-like p-3 p-md-4">
+        <h3 class="h6">Goed om te weten</h3>
+        <ul class="mb-0"><li>Silicone-light: geen slip op bevestigingspunten.</li><li>Anti-frizz, hittebestendig.</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="mt-4"><div class="card card-like p-3 p-md-4">
+    <h3 class="h5 mb-3">Reviews</h3>
+    <div class="row g-3"><div class="col-md-6"><div class="ig-ph"></div></div><div class="col-md-6"><div class="ig-ph"></div></div></div>
+    <p class="text-taupe-700 small mt-3 mb-0">Reviews komen hier — klaar voor integratie.</p>
+  </div></section>
+</div></section>
+</main>
+<div data-include="../partials/footer.html"></div>
+<script>
+const LS_KEY='em-cart';function loadCart(){try{return JSON.parse(localStorage.getItem(LS_KEY))||{}}catch{return{}}}
+function saveCart(c){localStorage.setItem(LS_KEY,JSON.stringify(c));}
+function add(id,name,price,qty){const cart=loadCart();if(!cart[id])cart[id]={id,name,price:parseFloat(price),qty:0};cart[id].qty+=qty;saveCart(cart);alert(`${name} toegevoegd.`)}
+document.querySelector('[data-add]')?.addEventListener('click',e=>{const b=e.currentTarget,q=parseInt(document.getElementById('qty').value||'1',10);add(b.dataset.id,b.dataset.name,b.dataset.price,q>0?q:1)});
+</script>
+<script src="../assets/js/includes.js"></script>
+</body></html>

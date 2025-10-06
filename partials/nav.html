@@ -1,0 +1,54 @@
+<!-- partials/nav.html -->
+<nav class="navbar navbar-expand-lg taupe sticky-top shadow-sm">
+  <div class="container align-items-center">
+    <a class="navbar-brand fw-semibold text-uppercase" href="/index.html">
+      Extensions <span style="color:var(--accent)">&</span> More
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+      aria-controls="mainNav" aria-expanded="false" aria-label="Navigatie openen">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="mainNav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/diensten.html">Diensten</a></li>
+        <li class="nav-item"><a class="nav-link" href="/shop.html">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="/over.html">Over</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center ms-lg-3 gap-2 mt-3 mt-lg-0">
+        <a href="/cart.html" class="position-relative text-decoration-none">
+          <i class="bi bi-bag fs-5 text-ivory"></i>
+          <span id="navCartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent text-dark" style="font-size:.7rem;">0</span>
+        </a>
+        <a class="btn btn-sm btn-accent fw-semibold px-3" href="/contact.html">Afspraak</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+// Active link automatisch
+const path = location.pathname.replace(/\/+$/,''); // zonder trailing slash
+document.querySelectorAll(".navbar .nav-link").forEach(a => {
+  const href = a.getAttribute("href").replace(/\/+$/,'');
+  if (href && (href === path || (href === '/index.html' && (path === '' || path === '/')))) {
+    a.classList.add("active");
+  }
+});
+
+// Cart badge (werkt met jouw localStorage-cart)
+const LS_KEY='em-cart';
+function updateNavCart(){
+  try{
+    const cart = JSON.parse(localStorage.getItem(LS_KEY)) || {};
+    const n = Object.values(cart).reduce((s,i)=>s+i.qty,0);
+    const el = document.getElementById('navCartCount');
+    if(el){ el.textContent = n; el.style.display = n ? 'inline-block' : 'none'; }
+  }catch{}
+}
+updateNavCart();
+window.addEventListener('storage', updateNavCart);
+</script>

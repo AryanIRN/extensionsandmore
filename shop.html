@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop — Extensions & More</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <div data-include="partials/nav.html"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="py-5 section-sand text-center">
+      <div class="container">
+        <h1 class="display-6 mb-2">Onze producten</h1>
+        <p class="text-taupe-700 mb-0">
+          Verzorg jouw extensions met onze eigen lijn — luxe, voedend en veilig.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRODUCTGRID -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4" id="product-grid">
+          <!-- Producten worden hier via JS geladen -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <div data-include="partials/footer.html"></div>
+
+<script>
+const products = [
+  { id:'shampoo',     name:"Shampoo",               price:"€24,95",  img:"", desc:"Reinigt zacht zonder uitdroging.",           href:"shop/shampoo.html" },
+  { id:'conditioner', name:"Conditioner",           price:"€26,95",  img:"", desc:"Voedt en ontwart extensions moeiteloos.",    href:"shop/conditioner.html" },
+  { id:'leavein',     name:"Leave-in Spray",        price:"€22,50",  img:"", desc:"Beschermt tegen hitte en UV.",               href:"shop/leavein.html" },
+  { id:'shake',       name:"Shake & Protect",       price:"€29,50",  img:"", desc:"Hydrateert en geeft glans.",                 href:"shop/shake-protect.html" }
+];
+
+const grid = document.getElementById('product-grid');
+
+function productMedia(p){
+  return p.img
+    ? `<img src="${p.img}" class="card-img-top" alt="${p.name}">`
+    : `<div class="ph-product" role="img" aria-label="${p.name} placeholder">${p.name}</div>`;
+}
+
+grid.innerHTML = products.map(p => `
+  <div class="col-6 col-md-4 col-lg-3">
+    <div class="card card-product h-100 border-0 shadow-soft round-2xl position-relative">
+      ${productMedia(p)}
+      <div class="card-body">
+        <div class="meta">
+          <h5 class="card-title mt-2 clamp-1">${p.name}</h5>
+          <p class="text-taupe-700 mb-1 clamp-2">${p.desc}</p>
+          <p class="fw-semibold mb-3">${p.price}</p>
+        </div>
+        <div class="cta">
+          <a href="${p.href}" class="btn btn-accent">Bekijk</a>
+        </div>
+      </div>
+      <!-- maakt hele kaart klikbaar -->
+      <a class="stretched-link" href="${p.href}" aria-label="${p.name}"></a>
+    </div>
+  </div>
+`).join('');
+</script>
+
+
+
+  <script src="assets/js/includes.js"></script>
+</body>
+</html>
