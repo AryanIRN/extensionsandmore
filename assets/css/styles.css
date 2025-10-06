@@ -778,6 +778,205 @@ h1, h2, h3, h4{ margin-bottom: .6em; }
 }
 
 /* ===== Bigger hero on desktop ===== */
-.hero-xl .container{ max-width: 10000px; }        /* was 960 via .container-narrow */
+.hero-xl .container{ max-width: 2000px; }        /* was 960 via .container-narrow */
 
 
+/* ===== Merken strook (infinite slider) ===== */
+.brand-strip{
+  background: var(--ivory);
+  overflow: hidden;
+}
+
+.brand-slider{
+  overflow: hidden;
+  position: relative;
+}
+
+.brand-track{
+  display: flex;
+  gap: 4rem;
+  animation: scrollBrands 20s linear infinite;
+  will-change: transform;
+}
+
+.brand-track img{
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  opacity: .9;
+  filter: grayscale(100%);
+  transition: filter .3s ease, opacity .3s ease;
+}
+.brand-track img:hover{
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes scrollBrands {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 767px){
+  .brand-track img{ height: 45px; }
+  .brand-track{ gap: 2rem; animation-duration: 14s; }
+}
+
+
+
+
+/* ===== Section themes to reduce white ===== */
+
+/* subtiele warm-wash (licht) */
+.section-warm {
+  background:
+    radial-gradient(1200px 400px at 0% 0%, rgba(192,169,139,.14), rgba(192,169,139,0) 60%),
+    linear-gradient(180deg, var(--ivory), var(--ivory));
+  border-top: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* alternatief “ivory + divider” voor rustige stukken */
+.section-ivory-alt{
+  background: var(--ivory);
+  border-top: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* diepe taupe band */
+.section-deep{
+  background: linear-gradient(180deg, var(--taupe-900), #26221f);
+  color: var(--text-on-dark);
+}
+.section-deep h1, .section-deep h2, .section-deep h3,
+.section-deep .h1, .section-deep .h2, .section-deep .h3{
+  color: var(--text-on-dark);
+}
+.section-deep .text-muted{ color: rgba(255,255,255,.7) !important; }
+
+/* Sand is er al; maak kaarten optisch losser op kleur */
+.section-sand .bg-white{
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===== Brand strip (dark variant) ===== */
+.brand-strip.section-deep .brand-track img{
+  filter: invert(1) grayscale(100%);
+  opacity: .8;
+}
+.brand-strip.section-deep .brand-track img:hover{
+  filter: invert(1) grayscale(0%);
+  opacity: 1;
+}
+
+
+/* ===== Diensten page polish ===== */
+
+/* Hero (split: tekst + foto) met zachte wash */
+.services-hero{
+  background:
+    radial-gradient(1200px 420px at 0% 0%, rgba(192,169,139,.14), rgba(192,169,139,0) 60%),
+    linear-gradient(180deg, var(--ivory), var(--ivory));
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* Prijzen band (sand bestaat al) – cards iets “lift” */
+.pricing-band .bg-white{
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow-soft);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.pricing-band .bg-white:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+}
+
+/* Kleurcollectie op donker (bestaat: .section-dark) – swatches gelijk */
+.section-dark .ig-ph{
+  height: 96px; border-radius: .9rem;
+}
+
+/* Tijdlijn: geef de band een subtiele alt-wash */
+.process-band{
+  background:
+    linear-gradient(180deg, rgba(107,98,91,.06), rgba(107,98,91,0));
+  border-top: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* FAQ: rustige ivory + dividers */
+.faq-band{
+  background: var(--ivory);
+  border-top: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* CTA afsluiting – je had al section-muted; iets extra ademruimte op smalle schermen */
+.services-cta .btn{ min-width: 260px; }
+/* ===== Over page polish ===== */
+
+/* Hero spacing consistent houden */
+.about-hero{
+  background:
+    radial-gradient(1200px 420px at 0% 0%, rgba(192,169,139,.14), rgba(192,169,139,0) 60%),
+    linear-gradient(180deg, var(--ivory), var(--ivory));
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* Bio-sectie cards subtiele hover zoals bij diensten */
+.section-sand .card-like{
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.section-sand .card-like:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+}
+
+/* CTA tekst netjes uitlijnen */
+.section-muted h2{
+  font-weight: 600;
+}
+/* ===== Shop page polish ===== */
+.shop-hero{
+  background:
+    radial-gradient(1200px 420px at 50% 0%, rgba(192,169,139,.14), rgba(192,169,139,0) 70%),
+    linear-gradient(180deg, var(--ivory), var(--ivory));
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.card-product{
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card-product:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+}
+/* ===== Shop Hero groter ===== */
+.shop-hero {
+  background:
+    radial-gradient(1200px 420px at 50% 0%, rgba(192,169,139,.14), rgba(192,169,139,0) 70%),
+    linear-gradient(180deg, var(--ivory), var(--ivory));
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  padding-top: 6rem;    /* extra ruimte boven */
+  padding-bottom: 6rem; /* extra ruimte onder */
+}
+/* Verzorgingslijn sectie leesbaarheid verbeteren */
+.bg-taupe-900 {
+  background-color: var(--taupe-900) !important;
+  color: var(--ivory);
+}
+
+.bg-taupe-900 h2,
+.bg-taupe-900 h5 {
+  color: var(--ivory);
+}
+
+.bg-taupe-900 p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bg-taupe-900 .bi {
+  color: var(--ivory);
+  opacity: 0.9;
+}

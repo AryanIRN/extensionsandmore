@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Shop — Extensions & More</title>
 
-  <!-- Base voor GH Pages -->
+  <!-- Base voor GitHub Pages -->
   <script>
     (function(){
       if (location.hostname.endsWith('github.io')) {
-        const b = document.createElement('base'); b.href='/extensionsandmore/'; document.head.prepend(b);
+        const b = document.createElement('base'); 
+        b.href='/extensionsandmore/'; 
+        document.head.prepend(b);
       }
     })();
   </script>
@@ -17,6 +19,28 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* ===== Shop Hero met zachte taupe wash ===== */
+    .shop-hero {
+      background:
+        radial-gradient(1200px 420px at 50% 0%, rgba(192,169,139,.14), rgba(192,169,139,0) 70%),
+        linear-gradient(180deg, var(--ivory), var(--ivory));
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+
+    /* Filterbar in lichte stijl */
+    .shop-filters {
+      background: var(--ivory);
+      border-top: 1px solid rgba(0,0,0,.05);
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+
+    /* FAQ afsluiting in sand stijl */
+    .shop-faq {
+      background: var(--taupe-300);
+      background: linear-gradient(180deg, #f7f5f3, #eee9e4);
+    }
+  </style>
 </head>
 <body>
 
@@ -24,23 +48,124 @@
   <div data-include="partials/nav.html"></div>
 
   <main>
-    <section class="py-5 section-sand text-center">
+
+    <!-- HERO -->
+    <section class="section-xl text-center shop-hero">
       <div class="container">
-        <h1 class="display-6 mb-2">Onze producten</h1>
-        <p class="text-taupe-700 mb-0">Verzorg jouw extensions met onze eigen lijn — luxe, voedend en veilig.</p>
+        <h1 class="display-4 mb-3">Onze producten</h1>
+        <p class="lead text-taupe-700 mb-0">
+          Verzorg jouw extensions met onze eigen lijn — luxe, voedend en veilig.
+        </p>
       </div>
     </section>
 
-    <section class="py-5">
+    <!-- FILTERS -->
+    <section class="py-4 shop-filters">
+      <div class="container text-center">
+        <div class="d-inline-flex flex-wrap justify-content-center gap-2">
+          <button class="btn btn-outline-dark rounded-pill px-3">Alle producten</button>
+          <button class="btn btn-outline-dark rounded-pill px-3">Verzorging</button>
+          <button class="btn btn-outline-dark rounded-pill px-3">Bescherming</button>
+          <button class="btn btn-outline-dark rounded-pill px-3">Styling</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="section-xl bg-white">
       <div class="container">
         <div class="row g-4" id="product-grid"></div>
       </div>
     </section>
+
+    <!-- PRODUCTLIJN USP BAND -->
+    <section class="section-xl bg-taupe-900 text-ivory">
+      <div class="container text-center">
+        <h2 class="h3 mb-3">Onze verzorgingslijn</h2>
+        <p class="text-white-50 mb-4">
+          Ontwikkeld door specialisten — verrijkt met <strong>arganolie</strong>, 
+          <strong>keratine</strong> en <strong>UV-bescherming</strong>. Perfect afgestemd op extensions.
+        </p>
+        <div class="row justify-content-center g-4">
+          <div class="col-md-4">
+            <div class="bg-ivory text-dark p-4 round-2xl h-100">
+              <i class="bi bi-droplet-half fs-1 mb-2"></i>
+              <h5>Hydratatie</h5>
+              <p class="small mb-0">Houdt je haar soepel, zacht en pluisvrij.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-ivory text-dark p-4 round-2xl h-100">
+              <i class="bi bi-shield-check fs-1 mb-2"></i>
+              <h5>Bescherming</h5>
+              <p class="small mb-0">Versterkt de haarstructuur tegen hitte en UV.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-ivory text-dark p-4 round-2xl h-100">
+              <i class="bi bi-stars fs-1 mb-2"></i>
+              <h5>Salonkwaliteit</h5>
+              <p class="small mb-0">Geselecteerd en getest in de salon zelf.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-xl">
+      <div class="container">
+        <h2 class="h4 mb-3 text-center">Veelgestelde vragen</h2>
+
+        <div class="accordion mx-auto" style="max-width:700px;" id="shop-faq">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="fq1">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fa1">
+                Kan ik deze producten ook zonder extensions gebruiken?
+              </button>
+            </h2>
+            <div id="fa1" class="accordion-collapse collapse show" data-bs-parent="#shop-faq">
+              <div class="accordion-body">
+                Ja! Alle producten zijn mild en voedend, ook ideaal voor natuurlijk haar.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="fq2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fa2">
+                Zijn de producten vrij van siliconen en sulfaten?
+              </button>
+            </h2>
+            <div id="fa2" class="accordion-collapse collapse" data-bs-parent="#shop-faq">
+              <div class="accordion-body">
+                Ja, ze zijn vrij van zware siliconen en sulfaten. Daardoor blijft je haar gezond en je extensions gaan langer mee.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="fq3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fa3">
+                Hoe vaak moet ik deze producten gebruiken?
+              </button>
+            </h2>
+            <div id="fa3" class="accordion-collapse collapse" data-bs-parent="#shop-faq">
+              <div class="accordion-body">
+                Gebruik shampoo en conditioner 1–2× per week. De leave-in en shake zijn geschikt voor dagelijks gebruik.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
   <div data-include="partials/footer.html"></div>
 
+  <!-- Scripts -->
   <script>
   const products = [
     { id:'shampoo',     name:"Shampoo",         price:"€24,95", img:"", desc:"Reinigt zacht zonder uitdroging.",        href:"shop/shampoo.html" },
@@ -74,10 +199,9 @@
   `).join('');
   </script>
 
-  <!-- Scripts: altijd repo-pad gebruiken zodat submappen werken -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-<script src="assets/js/includes.js" defer></script>
-<script src="assets/js/nav-init.js" defer></script>
+  <script src="assets/js/includes.js" defer></script>
+  <script src="assets/js/nav-init.js" defer></script>
 
 </body>
 </html>
