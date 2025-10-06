@@ -683,3 +683,101 @@ footer.footer{ margin-top: 0; width: 100%; }
   letter-spacing:.3px;
   box-sizing:border-box;
 }
+
+/* ===== Luxe spacing pack ===== */
+:root{
+  /* verticale sectie-ruimte & horizontale gutters */
+  --section-y: clamp(72px, 10vw, 160px);
+  --gutter-x: clamp(22px, 4vw, 56px);
+
+  /* card & blok padding */
+  --card-pad: clamp(20px, 2.6vw, 32px);
+  --block-gap: clamp(16px, 2.2vw, 28px);
+
+  /* typografie ritme */
+  --lh-title: 1.15;
+  --lh-body: 1.75;
+}
+
+/* containers iets smaller + royale side padding */
+.container{
+  max-width: 1080px;               /* iets smaller oogt chiquer */
+  padding-left: var(--gutter-x);
+  padding-right: var(--gutter-x);
+}
+
+/* optioneel nog smaller voor echte “boutique” secties */
+.container-narrow{ max-width: 960px; }
+
+/* royale sectie-verticale marge */
+.section-xl{ padding-top: var(--section-y); padding-bottom: var(--section-y); }
+
+/* extra lucht in rijen (gutters) zonder overal HTML te wijzigen */
+.row.g-luxe{ --bs-gutter-x: clamp(1.5rem, 3vw, 3.25rem); --bs-gutter-y: clamp(1.25rem, 2.4vw, 2.5rem); }
+
+/* cards & blokken royaler */
+.p-card{ padding: var(--card-pad) !important; }
+.stack{ display:grid; gap: var(--block-gap); }
+
+/* hero typografie wat ruimer en chiquer */
+.display-5{ line-height: var(--lh-title); letter-spacing:.2px; }
+.lead{ line-height: var(--lh-body); }
+
+/* knoppen iets royaler en ronder */
+.btn.btn-lg{
+  padding: .9rem 1.6rem;
+  border-radius: 999px;
+}
+
+/* carousel + accordion binnenruimte vergroten */
+.carousel-item{ padding: clamp(1.25rem, 3vw, 2rem) !important; }
+.accordion-button{ padding: clamp(1rem, 2.2vw, 1.4rem) clamp(1rem, 2.2vw, 1.4rem); }
+.accordion .accordion-item{ margin-bottom: clamp(.75rem, 1.4vw, 1.25rem); }
+
+/* witte blokken krijgen standaard luxe padding zonder HTML-spam */
+.bg-white.round-2xl{ padding: var(--card-pad); }
+
+/* meer witruimte tussen secties die al .py-5 hebben */
+.section-muted, .section-sand, section.py-5{
+  scroll-margin-top: 64px; /* prettiger in-page anchor gedrag */
+}
+
+/* USP iconen iets groter + ruimte */
+.section-sand .bi, .section-muted .bi{ font-size: 1.4rem; opacity:.9; }
+
+/* lijst- en paragrafen-ritme */
+p, ul, ol{ line-height: var(--lh-body); }
+h1, h2, h3, h4{ margin-bottom: .6em; }
+
+
+/* ===== Hero afbeelding groter maken ===== */
+.hero-image{
+  width: 100%;
+  max-width: 600px;          /* was ±480px; nu royaler */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--round-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-image img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* Desktop extra groot, mobiel iets kleiner */
+@media (min-width: 992px){
+  .hero-image{ max-width: 1240px; }   /* luxe breedte op brede schermen */
+}
+@media (max-width: 767px){
+  .hero-image{ max-width: 100%; }    /* volledig scherm op mobiel */
+}
+
+/* ===== Bigger hero on desktop ===== */
+.hero-xl .container{ max-width: 10000px; }        /* was 960 via .container-narrow */
+
+
